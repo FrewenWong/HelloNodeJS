@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+/**
+ * 实例化mongodb的配置
+ * @type {{bufferMaxEntries: number, useFindAndModify: boolean, poolSize: number, socketTimeoutMS: number, reconnectInterval: number, connectTimeoutMS: number, useCreateIndex: boolean, useNewUrlParser: boolean, family: number, autoReconnect: boolean, reconnectTries: number, autoIndex: boolean}}
+ */
 const options = {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -16,17 +20,24 @@ const options = {
     family: 4, // Use IPv4, skip trying IPv6
 };
 
+/**
+ * 导出MongoDB的connect的方法
+ * @returns {Promise<void>}
+ */
 exports.connect = async function () {
-    await mongoose.connect(
-        `mongodb://${process.env.MONGO_USERNAME}:${
-            process.env.MONGO_PASSWORD
-        }@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${
-            process.env.MONGO_DB_NAME
-        }`,
-        options,
-    )
+    let url = `mongodb://${process.env.MONGO_USERNAME}:${
+        process.env.MONGO_PASSWORD
+    }@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${
+        process.env.MONGO_DB_NAME
+    }`;
+    console.log("connect", `mongodb url: ${url}`);
+    await mongoose.connect(url, options);
 };
 
+/**
+ * 导出MongoDB的disconnect的方法
+ * @returns {Promise<void>}
+ */
 exports.disconnect = async function () {
     await mongoose.disconnect()
 };

@@ -4,7 +4,7 @@ const DailyRotateFile = require('winston-daily-rotate-file');
 const moment = require('moment')
 const fs = require('fs');
 const path = require('path');
-const LOG_DIR = path.resolve(__dirname, '../logs');
+const LOG_DIR = path.resolve(__dirname, '../../logs');
 
 // 创建目录
 if (!fs.existsSync(LOG_DIR)) {

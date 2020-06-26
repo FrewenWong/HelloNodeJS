@@ -1,6 +1,5 @@
-import moment from "moment";
-import request from 'requestretry';
-
+const moment = require("moment");
+const request = require('requestretry');
 const logger = require("./Logger");
 
 /**

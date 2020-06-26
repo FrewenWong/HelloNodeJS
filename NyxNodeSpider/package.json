@@ -1,7 +1,7 @@
 {
-  "name": "auranodespider",
+  "name": "NyxNodeSpider",
   "version": "1.0.0",
-  "description": "",
+  "description": "NyxNodeSpider Web Spider",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -20,7 +20,7 @@
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "lodash": "latest",
-    "moment": "latest",
+    "moment": "^2.27.0",
     "mongoose": "^5.9.7",
     "probe-image-size": "^5.0.0",
     "requestretry": "^4.1.0",
